@@ -8,3 +8,15 @@ CVS作为最早的开源免费的集中式版本控制系统。SVN修正CVS的�
     微软自己的集中式版本控制系统VSS，集成在visual Studio 
     分布式版本控制系统除了git，bitKeeper, mercurial bazaar.
  注意：版本控制系统，只能在跟踪文本文件的改动，而图片视频这些二进制文件虽然可以由版本控制系统管理，但没办法跟踪文件的变化。只能把二进制文件每次改动串起来，具体改的什么不清楚。而且注意，Microsoft的word格式是二进制格式。
+
+ 将一个文件放入仓库需要一下步骤：
+ $ git add file //执行上面的命令，Unix哲学是：没有消息就是好消息。
+ $ git commit -m "wrete a readme file" /* git commit －m:后面输入的是本次提交的说明。可以输入任何内容。*/
+
+$git status :让我们时刻掌握仓库当前的状态。
+$git diff :查看difference,显示的格式是unix 通用的diff格式。
+
+知道了<file>文件的修改后，再将其提交到仓库，
+$ git add <file>
+
+
