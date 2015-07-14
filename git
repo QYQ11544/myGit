@@ -133,4 +133,26 @@ $ git remote //查看远程库的信息
 $ git remote -v //查看更详细的信息
 origin https://github.com/QYQ11544/myGit.git (fetch)//可以抓取origin的地址
 origin https://github.com/QYQ11544/myGit.git (push)//可以推送的origin的地址
+·推送分支：
+    $ git push origin master //推送分支上多有本地提交推送到远程库，推送时，要制定本地分支，这样Git就会把该分支推送到远程库对应的远程分之上。
+    $ git push origin dev //推送到dev分支上。
+· master 分支是主分支，因此要时刻与远程同步
+·dev 分支是开发分支，所以也需要与远程同步。
+·bug分支只用于本地修复bug，就没必要推送到远程，
+·feature分支是否推送到远程，取决与是否合作开发。
+·······下面模拟多人协作
+mkdir myGit01 //新建文件夹目录
+cd myGit01 //进入新建目录
+git clone git@github.com:QYQ11544/myGit.git //从远程克隆
+ git branch //当你从远程库clone时，默认情况下，只能看到本地master分支
+ git checkout -b dev origin/dev //创建远程origin的dev分支到本地
+ ··········
+ 目前多人协作的工作模式通常是；
+    1.首先，可以试图git push origin branch-name //推送自己的修改
+    2.如果推送失败，则因为远程分支比你本地的新，需要先用git pull试图合并；
+    3.如果合并有冲突，则解决冲突，并再本地再次提交
+    4.没有冲突或者解决冲突后，在用 git push origin branch-name 推送成功。
+    如果git pull提示“no tracking information”//则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream branch-name origin/branch/branch-name.git
+    本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name //本地和远程分支的名称最好一致。
+     创建标签
 
