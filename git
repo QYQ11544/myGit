@@ -18,5 +18,21 @@ $git diff :查看difference,显示的格式是unix 通用的diff格式。
 
 知道了<file>文件的修改后，再将其提交到仓库，
 $ git add <file>
+$git reset --hard HEAD^ //将文件返回到上一个版本
+HEAD^:上一个版本
+HEAD^^:上上一个版本
+HEAD-100：表示往上100个版本。
+$ git reset --hard 61b9f3f //指定回到未来那个版本
+其中commit is（版本号）是SHA1计算出来的十六进制表示的数字。
+    总结：
+        ：HEAD指向的版本就是当前版本，因此，Git允许我们在版本历史之间穿梭，使用命令git reset --hard commit_id.
+: 穿梭前，用git log可以查看提交历史，以便确定要会退的那个版本
+：要重返未来，用git relog查看命令历史，以便确定要会退到未来的那个版本。
 
+·········工作区和暂存区··············
+：工作区：（working Directory）~/myGit 文件夹就是一个工作区
+：版本库（Repository）：.git隐藏目录是Git的版本库。其中最重要的文件index的暂存区，其中Git自动创建了第一个分支master,以及指向master 的一个指针叫Head.
+    git  add <file>将文件修改添加到暂存区
+    git  commit <file> 将暂存区的所有内容提交到当前分支
+    我们创建git版本库时，git自动为我们创建唯一一个msater分支，git commit就是往master分支上提交更改。
 
