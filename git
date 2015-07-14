@@ -117,3 +117,20 @@ $ git merge --no-ff -m "merge with no-ff" dev //--no-ff参数用于普通模式�
     首先：master分支应该时非常稳定的，也就是仅仅用来发布新版本，平时不能再上面做修改。
 然后创建新的dev分支，dev分支应该作为平时的开发工作。
 同用户组每个成员都有自己的分支，然后定期往dev分支上合并即可。
+
+  Bug 分支 
+$ git stash //可以把当前工作现场储藏起来，以后还可以恢复现场
+$ git stash list // 查看stash列表
+现场工作还在，git把status内容存在某个地方
+ 1. git stash apply 恢复，stash内容并不删除，你需要使用git stash drop 来删除。
+ 2. git stash pop ，恢复的同时把stash内容也删除。
+如果多次stash,恢复时，先使用git stash list 查看，然后恢复指定的stash。
+$ git stash apply stash@{0} 
+总结：修复bug时，我们会通过创建bug分支进行修复，然后合并，最后删除
+当手头工作没有完成，可以先把工作现场git stash 一下，然后区修复bug，修复后，再git stash pop ，回到工作现场。
+多人协作
+$ git remote //查看远程库的信息
+$ git remote -v //查看更详细的信息
+origin https://github.com/QYQ11544/myGit.git (fetch)//可以抓取origin的地址
+origin https://github.com/QYQ11544/myGit.git (push)//可以推送的origin的地址
+
